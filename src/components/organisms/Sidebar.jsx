@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import ApperIcon from "@/components/ApperIcon";
 import { cn } from "@/utils/cn";
+import { useAuth } from "@/layouts/Root";
 
 const Sidebar = ({ className }) => {
+  const { logout } = useAuth();
   const navigation = [
     {
       name: "Dashboard",
@@ -81,11 +83,8 @@ const Sidebar = ({ className }) => {
 {/* Footer with Logout */}
         <div className="p-4 border-t border-gray-200 space-y-3">
           <button
-            onClick={() => {
+onClick={() => {
               if (window.confirm('Are you sure you want to logout?')) {
-                // Assuming we'll get logout from auth context
-                const { useAuth } = require('@/layouts/Root');
-                const { logout } = useAuth();
                 logout();
               }
             }}
