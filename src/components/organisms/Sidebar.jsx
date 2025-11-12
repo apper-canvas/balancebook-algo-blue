@@ -78,8 +78,23 @@ const Sidebar = ({ className }) => {
           ))}
         </nav>
 
-        {/* Footer */}
-        <div className="p-4 border-t border-gray-200">
+{/* Footer with Logout */}
+        <div className="p-4 border-t border-gray-200 space-y-3">
+          <button
+            onClick={() => {
+              if (window.confirm('Are you sure you want to logout?')) {
+                // Assuming we'll get logout from auth context
+                const { useAuth } = require('@/layouts/Root');
+                const { logout } = useAuth();
+                logout();
+              }
+            }}
+            className="w-full flex items-center space-x-3 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+          >
+            <ApperIcon name="LogOut" className="w-5 h-5" />
+            <span>Logout</span>
+          </button>
+          
           <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-4">
             <div className="flex items-center space-x-3">
               <ApperIcon name="TrendingUp" className="w-5 h-5 text-primary" />

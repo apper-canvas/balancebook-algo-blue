@@ -86,7 +86,7 @@ const TransactionForm = ({
 
     setIsSubmitting(true);
     try {
-      const transactionData = {
+const transactionData = {
         ...formData,
         amount: parseFloat(formData.amount),
         date: new Date(formData.date).toISOString()

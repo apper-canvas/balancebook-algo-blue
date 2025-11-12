@@ -66,7 +66,7 @@ const Goals = () => {
     }
 
     try {
-      await savingsGoalService.create({
+await savingsGoalService.create({
         name: newGoalForm.name,
         targetAmount: amount,
         deadline: deadline.toISOString(),

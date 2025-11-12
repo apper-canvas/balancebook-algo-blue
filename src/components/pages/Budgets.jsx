@@ -81,7 +81,7 @@ const Budgets = () => {
 
     try {
       await budgetService.create({
-        category: newBudgetForm.category,
+category: newBudgetForm.category,
         monthlyLimit: amount,
         month: selectedMonth
       });

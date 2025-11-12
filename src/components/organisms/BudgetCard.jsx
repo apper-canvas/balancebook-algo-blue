@@ -33,7 +33,7 @@ const BudgetCard = ({ budget, categoryInfo, onUpdate }) => {
 
     setIsSubmitting(true);
     try {
-      await budgetService.update(budget.Id, { 
+await budgetService.update(budget.Id, { 
         ...budget,
         monthlyLimit: newAmount 
       });
