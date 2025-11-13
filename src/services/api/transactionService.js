@@ -93,7 +93,7 @@ export const transactionService = {
       });
 
       if (!response.success) {
-        console.error(Failed to fetch {service name}:, response);
+        console.error(`Failed to fetch transaction:`, response);
         toast.error(response.message);
         return [];
       }
