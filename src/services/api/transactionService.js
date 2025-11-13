@@ -1,6 +1,5 @@
-import { toast } from "react-toastify";
-import React from "react";
 import { getApperClient } from "@/services/apperClient";
+import { toast } from "react-toastify";
 
 export const transactionService = {
   async getAll() {
@@ -39,7 +38,7 @@ export const transactionService = {
     }
   },
 
-async getById(id) {
+  async getById(id) {
     try {
       const apperClient = getApperClient();
       const response = await apperClient.getRecordById('transactions_c', id, {
@@ -114,7 +113,7 @@ async getById(id) {
     }
   },
 
-async getByCategory(category) {
+  async getByCategory(category) {
     try {
       const apperClient = getApperClient();
       const response = await apperClient.fetchRecords('transactions_c', {
@@ -154,7 +153,7 @@ async getByCategory(category) {
     }
   },
 
-async create(transactionData) {
+  async create(transactionData) {
     try {
       const apperClient = getApperClient();
       
@@ -223,7 +222,7 @@ async create(transactionData) {
     }
   },
 
-async update(id, transactionData) {
+  async update(id, transactionData) {
     try {
       const apperClient = getApperClient();
       
