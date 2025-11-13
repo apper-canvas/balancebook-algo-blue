@@ -17,12 +17,28 @@ export const getCurrentMonth = () => {
 };
 
 export const getMonthStart = (monthString) => {
-  const date = new Date(monthString + "-01");
+  // Handle various month string formats (YYYY-MM or YYYY-MM-DD)
+  const normalizedMonth = monthString.includes('-') ? monthString.split('-').slice(0, 2).join('-') : monthString;
+  const date = new Date(normalizedMonth + "-01T00:00:00");
+  
+  // Validate the date is valid
+  if (isNaN(date.getTime())) {
+    throw new Error(`Invalid month string: ${monthString}`);
+  }
+  
   return startOfMonth(date);
 };
 
 export const getMonthEnd = (monthString) => {
-  const date = new Date(monthString + "-01");
+  // Handle various month string formats (YYYY-MM or YYYY-MM-DD)
+  const normalizedMonth = monthString.includes('-') ? monthString.split('-').slice(0, 2).join('-') : monthString;
+  const date = new Date(normalizedMonth + "-01T00:00:00");
+  
+  // Validate the date is valid
+  if (isNaN(date.getTime())) {
+    throw new Error(`Invalid month string: ${monthString}`);
+  }
+  
   return endOfMonth(date);
 };
 
